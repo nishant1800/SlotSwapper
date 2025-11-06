@@ -10,12 +10,12 @@ import {
   createUser, 
   findUserByEmail, 
   updateEventStatus as dbUpdateEventStatus,
-  EventStatus,
   findEventById,
   createSwapRequest as dbCreateSwapRequest,
   findSwapRequestById,
   respondToSwapRequest as dbRespondToSwapRequest
 } from './data';
+import { EventStatus } from './definitions';
 
 const loginSchema = z.object({
   email: z.string().email(),

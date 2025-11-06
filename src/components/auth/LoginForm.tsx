@@ -1,6 +1,6 @@
 'use client';
 
-import { useFormState, useFormStatus } from 'react-dom';
+import { useActionState, useFormStatus } from 'react';
 import Link from 'next/link';
 
 import { login } from '@/lib/actions';
@@ -20,7 +20,7 @@ function SubmitButton() {
 }
 
 export function LoginForm() {
-  const [state, action] = useFormState(login, undefined);
+  const [state, action] = useActionState(login, undefined);
 
   return (
     <Card className="w-full max-w-sm">

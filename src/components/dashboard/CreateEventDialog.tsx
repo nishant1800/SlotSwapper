@@ -26,11 +26,11 @@ function SubmitButton() {
   );
 }
 
-export function CreateEventDialog({ children }: { children: React.ReactNode }) {
+export function CreateEventDialog({ children }) {
   const [open, setOpen] = useState(false);
   const { toast } = useToast();
 
-  const handleAction = async (formData: FormData) => {
+  const handleAction = async (formData) => {
     const result = await createEvent(formData);
     if (result?.error) {
       toast({

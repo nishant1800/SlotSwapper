@@ -19,7 +19,6 @@ import {
 } from '@/components/ui/tooltip';
 import { Icons } from '../icons';
 import { logout } from '@/lib/actions';
-import { User } from '@/lib/definitions';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Button } from '../ui/button';
 
@@ -29,7 +28,7 @@ const navItems = [
   { href: '/requests', icon: Repeat, label: 'Requests' },
 ];
 
-export default function AppSidebar({ user }: { user: User }) {
+export default function AppSidebar({ user }) {
   const pathname = usePathname();
 
   return (

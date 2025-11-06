@@ -4,8 +4,8 @@ import { SwappableSlots } from "@/components/marketplace/SwappableSlots";
 
 export default async function MarketplacePage() {
     const session = await getSession();
-    const availableSlots = await getSwappableEvents(session!.user.id);
-    const mySwappableSlots = await getMySwappableSlots(session!.user.id);
+    const availableSlots = await getSwappableEvents(session.user.id);
+    const mySwappableSlots = await getMySwappableSlots(session.user.id);
 
     return (
         <div className="space-y-6">

@@ -6,8 +6,8 @@ import { OutgoingRequests } from "@/components/requests/OutgoingRequests";
 
 export default async function RequestsPage() {
     const session = await getSession();
-    const rawIncoming = await getIncomingRequests(session!.user.id);
-    const rawOutgoing = await getOutgoingRequests(session!.user.id);
+    const rawIncoming = await getIncomingRequests(session.user.id);
+    const rawOutgoing = await getOutgoingRequests(session.user.id);
     
     // In-memory data requires re-populating relations that might have changed
     const incomingRequests = rawIncoming.map(repopulateSwapRequest);

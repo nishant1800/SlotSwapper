@@ -1,8 +1,7 @@
 import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
  
 // This function can be marked `async` if using `await` inside
-export function middleware(request: NextRequest) {
+export function middleware(request) {
   const sessionCookie = request.cookies.get('session');
   const { pathname } = request.nextUrl;
  

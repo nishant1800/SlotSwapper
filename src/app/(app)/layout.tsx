@@ -3,7 +3,7 @@ import Header from '@/components/shared/Header';
 import { getSession } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 
-export default async function AppLayout({ children }: { children: React.ReactNode }) {
+export default async function AppLayout({ children }) {
   const session = await getSession();
   if (!session) {
     redirect('/login');

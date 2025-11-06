@@ -11,7 +11,6 @@ import {
   DialogFooter,
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { Event } from '@/lib/definitions';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent } from '../ui/card';
@@ -19,8 +18,8 @@ import { useToast } from '@/hooks/use-toast';
 import { createSwapRequest } from '@/lib/actions';
 import { ScrollArea } from '../ui/scroll-area';
 
-export function RequestSwapDialog({ isOpen, onOpenChange, theirSlot, mySlots }: { isOpen: boolean, onOpenChange: (open: boolean) => void, theirSlot: Event | null, mySlots: Event[] }) {
-    const [selectedMySlotId, setSelectedMySlotId] = useState<string | null>(null);
+export function RequestSwapDialog({ isOpen, onOpenChange, theirSlot, mySlots }) {
+    const [selectedMySlotId, setSelectedMySlotId] = useState(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const { toast } = useToast();
 

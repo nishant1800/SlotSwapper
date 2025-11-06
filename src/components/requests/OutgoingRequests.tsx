@@ -2,13 +2,13 @@
 
 import { format } from "date-fns";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
-import { SwapRequest, SwapRequestStatus } from "@/lib/definitions";
+import { SwapRequestStatus } from "@/lib/definitions";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { ArrowRight } from "lucide-react";
 import { Badge } from "../ui/badge";
 import { cn } from "@/lib/utils";
 
-function StatusBadge({ status }: { status: SwapRequestStatus }) {
+function StatusBadge({ status }) {
     return (
       <Badge
         variant={
@@ -24,7 +24,7 @@ function StatusBadge({ status }: { status: SwapRequestStatus }) {
     );
   }
 
-function RequestCard({ request }: { request: SwapRequest }) {
+function RequestCard({ request }) {
     return (
         <Card className="opacity-80">
             <CardHeader>
@@ -61,7 +61,7 @@ function RequestCard({ request }: { request: SwapRequest }) {
     );
 }
 
-export function OutgoingRequests({ requests }: { requests: SwapRequest[] }) {
+export function OutgoingRequests({ requests }) {
 
     if (requests.length === 0) {
         return (

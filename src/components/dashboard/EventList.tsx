@@ -18,12 +18,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Event, EventStatus } from '@/lib/definitions';
+import { EventStatus } from '@/lib/definitions';
 import { updateEventStatus } from '@/lib/actions';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
 
-function StatusBadge({ status }: { status: EventStatus }) {
+function StatusBadge({ status }) {
   return (
     <Badge
       variant={
@@ -39,10 +39,10 @@ function StatusBadge({ status }: { status: EventStatus }) {
   );
 }
 
-export function EventList({ events }: { events: Event[] }) {
+export function EventList({ events }) {
     const { toast } = useToast();
 
-    const handleStatusChange = async (eventId: string, status: EventStatus) => {
+    const handleStatusChange = async (eventId, status) => {
         const result = await updateEventStatus(eventId, status);
         if (result?.error) {
             toast({

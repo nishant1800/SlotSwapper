@@ -7,7 +7,7 @@ import { PlusCircle } from "lucide-react";
 
 export default async function DashboardPage() {
   const session = await getSession();
-  const events = await getEventsByOwnerId(session!.user.id);
+  const events = await getEventsByOwnerId(session.user.id);
 
   return (
     <div className="space-y-6">

@@ -3,18 +3,17 @@
 import { format } from "date-fns";
 import { Button } from "../ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../ui/card";
-import { SwapRequest } from "@/lib/definitions";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { ArrowRight, Check, X } from "lucide-react";
 import { respondToSwapRequest } from "@/lib/actions";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 
-function RequestCard({ request }: { request: SwapRequest }) {
+function RequestCard({ request }) {
     const { toast } = useToast();
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const handleResponse = async (accepted: boolean) => {
+    const handleResponse = async (accepted) => {
         setIsSubmitting(true);
         const result = await respondToSwapRequest(request.id, accepted);
         setIsSubmitting(false);
@@ -67,7 +66,7 @@ function RequestCard({ request }: { request: SwapRequest }) {
     );
 }
 
-export function IncomingRequests({ requests }: { requests: SwapRequest[] }) {
+export function IncomingRequests({ requests }) {
 
     if (requests.length === 0) {
         return (

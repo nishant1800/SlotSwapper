@@ -5,12 +5,11 @@ import { format } from "date-fns";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Event } from "@/lib/definitions";
 import { Calendar, Clock, Repeat } from "lucide-react";
 import { RequestSwapDialog } from "./RequestSwapDialog";
 
-export function SwappableSlots({ availableSlots, mySwappableSlots }: { availableSlots: (Event & { owner?: any })[], mySwappableSlots: Event[] }) {
-    const [selectedSlot, setSelectedSlot] = useState<Event | null>(null);
+export function SwappableSlots({ availableSlots, mySwappableSlots }) {
+    const [selectedSlot, setSelectedSlot] = useState(null);
 
     if (availableSlots.length === 0) {
         return (

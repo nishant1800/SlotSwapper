@@ -1,17 +1,16 @@
-import type {Metadata} from 'next';
+
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 
-export const metadata: Metadata = {
+
+export const metadata = {
   title: 'SlotSwapper',
   description: 'Peer-to-peer time-slot scheduling',
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>

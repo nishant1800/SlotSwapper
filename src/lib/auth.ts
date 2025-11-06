@@ -1,17 +1,16 @@
 import 'server-only';
 import { cookies } from 'next/headers';
-import { User } from './definitions';
 import { findUserById, users } from './data';
 import { randomBytes } from 'crypto';
 
 const SESSION_COOKIE_NAME = 'session';
 
 // This would be a database (e.g., Redis) in a real app
-const sessions = new Map<string, { userId: string; expires: Date }>();
+const sessions = new Map();
 
 // Dummy password verification. In a real app, use a library like argon2 or bcrypt.
 // The password hash in data.ts is just for show.
-export async function verify(password: string, user: User) {
+export async function verify(password, user) {
   if (user.name === 'Alice' && password === 'password123') return true;
   if (user.name === 'Bob' && password === 'password456') return true;
   if (user.name === 'Charlie' && password === 'password789') return true;
@@ -20,7 +19,7 @@ export async function verify(password: string, user: User) {
   return false;
 }
 
-export async function createSession(userId: string) {
+export async function createSession(userId) {
   const sessionId = randomBytes(32).toString('hex');
   const expires = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000); // 7 days
   sessions.set(sessionId, { userId, expires });
@@ -34,7 +33,7 @@ export async function createSession(userId: string) {
   });
 }
 
-export async function getSession(): Promise<{ user: User } | null> {
+export async function getSession() {
   const sessionId = cookies().get(SESSION_COOKIE_NAME)?.value;
   if (!sessionId) return null;
 

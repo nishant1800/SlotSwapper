@@ -22,7 +22,7 @@ const loginSchema = z.object({
   password: z.string().min(6),
 });
 
-export async function login(prevState: any, formData: FormData) {
+export async function login(prevState, formData) {
   const validatedFields = loginSchema.safeParse(Object.fromEntries(formData.entries()));
 
   if (!validatedFields.success) {
@@ -46,7 +46,7 @@ const signupSchema = z.object({
   password: z.string().min(8, "Password must be at least 8 characters"),
 });
 
-export async function signup(prevState: any, formData: FormData) {
+export async function signup(prevState, formData) {
     const validatedFields = signupSchema.safeParse(Object.fromEntries(formData.entries()));
 
     if (!validatedFields.success) {
@@ -84,7 +84,7 @@ const eventSchema = z.object({
     path: ["endTime"],
 });
 
-export async function createEvent(formData: FormData) {
+export async function createEvent(formData) {
     const session = await getSession();
     if (!session) return { error: 'Unauthorized' };
 
@@ -100,7 +100,7 @@ export async function createEvent(formData: FormData) {
     return { success: 'Event created successfully.' };
 }
 
-export async function updateEventStatus(eventId: string, status: EventStatus) {
+export async function updateEventStatus(eventId, status) {
     const session = await getSession();
     if (!session) return { error: 'Unauthorized' };
 
@@ -116,7 +116,7 @@ export async function updateEventStatus(eventId: string, status: EventStatus) {
 }
 
 
-export async function createSwapRequest(mySlotId: string, theirSlotId: string) {
+export async function createSwapRequest(mySlotId, theirSlotId) {
     const session = await getSession();
     if (!session) return { error: 'Unauthorized' };
 
@@ -141,7 +141,7 @@ export async function createSwapRequest(mySlotId: string, theirSlotId: string) {
 }
 
 
-export async function respondToSwapRequest(requestId: string, accepted: boolean) {
+export async function respondToSwapRequest(requestId, accepted) {
     const session = await getSession();
     if (!session) return { error: 'Unauthorized' };
 
